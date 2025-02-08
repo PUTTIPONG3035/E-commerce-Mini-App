@@ -1,31 +1,69 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <i class="bi-gem fs-3 mx-2"></i>
-      <a class="navbar-brand custom-font fs-3" href="#">DIAMOND</a>
+  <div class="container-fluid">
+    <i class="bi-gem fs-3 mx-2"></i>
+    <a class="navbar-brand custom-font fs-3" href="#">DIAMOND</a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/shop">Shop</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Product</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-        <form class="d-flex">
-            <i class="bi-search p-2 fs-5 hover-icon"></i>
-            <i class="bi-person-circle p-2 fs-5 hover-icon"></i>
-            <i class="bi-bag-plus p-2 fs-5 hover-icon"></i>
-        </form>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <i class="bi-person-circle p-2 fs-5 hover-icon"></i>
+        <i class="bi-bag-plus p-2 fs-5 hover-icon" data-bs-toggle="offcanvas" href="#offcanvasRight" role="button"
+          aria-controls="offcanvasRight" style="cursor: pointer;"></i>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Carts</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="row" *ngFor="let item of cartItems">
+      <div class="col-4">
+        <img width="100%" height="100%"
+          [src]="item.productImage" />
+      </div>
+      <div class="col">
+        <p>{{item.productName}}</p>
+        <p class="text-secondary">Color : pink</p>
+        <div>
+          <button type="button" class="btn btn-light" [disabled]="item.quantity <= 1" (click)="decreaseQuantity(item.productId)">-</button>
+          <button type="button" class="btn btn-light disabled">{{item.quantity}}</button>
+          <button type="button" class="btn btn-light" (click)="increaseQuantity(item.productId)">+</button>
+        </div>
+      </div>
+      <div class="col text-end">
+        <p><b>{{item.price}}</b></p>
+        <i class="bi bi-x-lg" (click)="clearCart(item.productId)"  style="cursor: pointer;"></i>
       </div>
     </div>
-  </nav>
+
+  </div>
+  <div class="offcanvas-footer p-3 border-top">
+    <div class="d-flex justify-content-between">
+      <h5>Total:</h5>
+      <h5><b>$1000</b></h5>
+    </div>
+    <button type="button" class="btn btn-dark w-100 mt-2">Checkout</button>
+  </div>
+
+</div>
