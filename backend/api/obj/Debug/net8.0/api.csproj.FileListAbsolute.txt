@@ -159,3 +159,9 @@
 /Users/folk/Documents/GitHub/E-commerce-Mini-App/backend/api/obj/Debug/net8.0/api.pdb
 /Users/folk/Documents/GitHub/E-commerce-Mini-App/backend/api/obj/Debug/net8.0/api.genruntimeconfig.cache
 /Users/folk/Documents/GitHub/E-commerce-Mini-App/backend/api/obj/Debug/net8.0/ref/api.dll
+/Users/folk/Documents/GitHub/E-commerce-Mini-App/backend/api/bin/Debug/net8.0/System.Web.Cors.dll
+/Users/folk/Documents/GitHub/E-commerce-Mini-App/backend/api/bin/Debug/net8.0/System.Net.Http.Formatting.dll
+/Users/folk/Documents/GitHub/E-commerce-Mini-App/backend/api/bin/Debug/net8.0/System.Web.Http.dll
+/Users/folk/Documents/GitHub/E-commerce-Mini-App/backend/api/bin/Debug/net8.0/System.Web.Http.Cors.dll
+/Users/folk/Documents/GitHub/E-commerce-Mini-App/backend/api/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/folk/Documents/GitHub/E-commerce-Mini-App/backend/api/bin/Debug/net8.0/Newtonsoft.Json.Bson.dll

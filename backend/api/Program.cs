@@ -30,8 +30,8 @@ app.UseCors("AllowAngularApp");
 
 app.UseHttpsRedirection();
  
-
 app.ProductController(connectionString);
+app.UserController (connectionString);
 
 
 app.Run();

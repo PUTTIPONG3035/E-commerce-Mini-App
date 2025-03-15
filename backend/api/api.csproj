@@ -8,9 +8,18 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.66" />
+    <PackageReference Include="Microsoft.AspNet.Cors" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Cors" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.12" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
+    <!-- <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="6.16.0" /> -->
+    <PackageReference Include="Microsoft.IdentityModel.Logging" Version="7.5.0" />
+    <!-- <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.16.0" /> -->
+    <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="7.5.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <!-- <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.16.0" /> -->
   </ItemGroup>
 
 </Project>

@@ -6,8 +6,14 @@ public static class ProductEndpoints
 {
     public static void ProductController(this WebApplication app, string connectionString)
     {
-        app.MapGet("/product", async () =>
+        app.MapGet("/product", async (HttpContext context) =>
         {
+            var middleware = new TokenAuthenticationMiddleware(async (ctx) => { });
+            await middleware.InvokeAsync(context); // ใช้ InvokeAsync
+           if (context.Response.StatusCode == StatusCodes.Status401Unauthorized)
+             {
+                 return Results.Unauthorized();
+            }
             using var connection = new SqlConnection(connectionString);
             var result = await connection.QueryAsync<Product>("SELECT * FROM Product");
             return Results.Ok(result);
@@ -23,7 +29,7 @@ public static class ProductEndpoints
         .WithName("GetProductById")
         .WithOpenApi();
         
-       app.MapPost("/product", async (Product product) =>{
+       app.MapPost("/product", async (Product product, HttpContext context) =>{
          using var connection = new SqlConnection(connectionString);
          await connection.ExecuteAsync("INSERT INTO Product (ProductName, Price, Rating, ProductImage, Date) VALUES (@ProductName, @Price, @Rating, @ProductImage, @Date)", product);
          return Results.Created($"/product/{product.ProductId}", product);
