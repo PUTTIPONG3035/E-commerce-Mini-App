@@ -25,6 +25,15 @@ public class TokenManager
         try{
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             JwtSecurityToken jwtToken =(JwtSecurityToken)tokenHandler.ReadToken(token);
+            foreach (var claim in jwtToken.Claims)
+        {
+            if(claim.Type == "role"){
+                Console.WriteLine(claim.Value);
+                if(claim.Value == "user"){
+                    return null;
+                }
+            }
+        }
             if(jwtToken == null){
                 return null;
             }

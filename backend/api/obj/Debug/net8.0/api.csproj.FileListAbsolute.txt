@@ -165,3 +165,4 @@
 /Users/folk/Documents/GitHub/E-commerce-Mini-App/backend/api/bin/Debug/net8.0/System.Web.Http.Cors.dll
 /Users/folk/Documents/GitHub/E-commerce-Mini-App/backend/api/bin/Debug/net8.0/Newtonsoft.Json.dll
 /Users/folk/Documents/GitHub/E-commerce-Mini-App/backend/api/bin/Debug/net8.0/Newtonsoft.Json.Bson.dll
+/Users/folk/Documents/GitHub/E-commerce-Mini-App/backend/api/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll

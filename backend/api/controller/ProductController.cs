@@ -8,12 +8,12 @@ public static class ProductEndpoints
     {
         app.MapGet("/product", async (HttpContext context) =>
         {
-            var middleware = new TokenAuthenticationMiddleware(async (ctx) => { });
-            await middleware.InvokeAsync(context); // ใช้ InvokeAsync
-           if (context.Response.StatusCode == StatusCodes.Status401Unauthorized)
-             {
-                 return Results.Unauthorized();
-            }
+        //     var middleware = new TokenAuthenticationMiddleware(async (ctx) => { });
+        //     await middleware.InvokeAsync(context); // ใช้ InvokeAsync
+        //    if (context.Response.StatusCode == StatusCodes.Status401Unauthorized)
+        //      {
+        //          return Results.Unauthorized();
+        //     }
             using var connection = new SqlConnection(connectionString);
             var result = await connection.QueryAsync<Product>("SELECT * FROM Product");
             return Results.Ok(result);

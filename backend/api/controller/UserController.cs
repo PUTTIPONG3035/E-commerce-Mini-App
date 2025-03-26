@@ -51,14 +51,15 @@ public static class UserEndpoints
                 User userObj = connection.QueryFirstOrDefault<User>("SELECT * FROM Users WHERE Email = @Email AND Password = @Password", new { Email = user.email, Password = user.password });
                 if (userObj != null)
                 {
-                    if (userObj.status == "true")
-                    {
+                    // if (userObj.status == "true")
+                    // {
                         return Results.Ok(new { token = TokenManager.GenerateToken(userObj.email, userObj.role) });
-                    }
-                    else
-                    {
-                        return Results.Problem("Wait for Admin Approval", statusCode: (int)HttpStatusCode.Unauthorized);
-                    }
+                    // }
+                    // else
+                    // {
+                    //     return Results.Ok(new { token = TokenManager.GenerateToken(userObj.email, userObj.role) });
+
+                    // }
                 }
                 else
                 {
@@ -81,13 +82,22 @@ public static class UserEndpoints
             await middleware.InvokeAsync(context); // ใช้ InvokeAsync
 
             if (context.Response.StatusCode == StatusCodes.Status401Unauthorized)
-             {
-                 return Results.Unauthorized();
+            {
+                return Results.Unauthorized();
             }
 
             return Results.Ok(new { message = "true" });
         })
         .WithName("CheckToken")
+        .WithOpenApi();
+
+        app.MapGet("/user/{email}", async (string email) =>{
+            Console.WriteLine(email);
+            using var connection = new SqlConnection(connectionString);
+            var result = await connection.QueryFirstAsync<User>($"SELECT name, contactNumber, email FROM Users WHERE Email = '{email}'");
+            return Results.Ok(result);
+        })
+        .WithName("GetUserByEmail")
         .WithOpenApi();
     }
 }

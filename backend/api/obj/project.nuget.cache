@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "blw6Ot/Yfh0=",
+  "dgSpecHash": "++zvyPdbfFc=",
   "success": true,
   "projectFilePath": "/Users/folk/Documents/GitHub/E-commerce-Mini-App/backend/api/api.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "/Users/folk/.nuget/packages/microsoft.aspnet.webapi.client/5.2.7/microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "/Users/folk/.nuget/packages/microsoft.aspnet.webapi.core/5.2.7/microsoft.aspnet.webapi.core.5.2.7.nupkg.sha512",
     "/Users/folk/.nuget/packages/microsoft.aspnet.webapi.cors/5.2.7/microsoft.aspnet.webapi.cors.5.2.7.nupkg.sha512",
+    "/Users/folk/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/8.0.0/microsoft.aspnetcore.authentication.jwtbearer.8.0.0.nupkg.sha512",
     "/Users/folk/.nuget/packages/microsoft.aspnetcore.openapi/8.0.12/microsoft.aspnetcore.openapi.8.0.12.nupkg.sha512",
     "/Users/folk/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/folk/.nuget/packages/microsoft.bcl.cryptography/8.0.0/microsoft.bcl.cryptography.8.0.0.nupkg.sha512",
