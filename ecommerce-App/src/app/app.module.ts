@@ -9,6 +9,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { ProductComponent } from './components/product/product.component';
 import { LoginSignupComponent } from './components/login-signup/login-signup.component';
+import { FormsModule } from '@angular/forms';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -18,11 +20,13 @@ import { LoginSignupComponent } from './components/login-signup/login-signup.com
     HomeComponent,
     ShopComponent,
     ProductComponent,
-    LoginSignupComponent
+    LoginSignupComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [],

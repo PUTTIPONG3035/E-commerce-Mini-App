@@ -1,47 +1,55 @@
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container d-flex align-items-center justify-content-center vh-100">
+    <!-- <div class="row justify-content-center "> -->
         <div class="col-md-4">
-            <div class="card">
+            <div class="card" *ngIf="!disableLogin">
                 <div class="card-body">
-                    <h3 class="text-center mb-4">Login</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" id="username" class="form-control" name="username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" class="form-control" name="password" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block mt-4">Login</button>
-                    </form>
-                    <div class="text-center mt-2">
-                        <a href="#" style="text-decoration: underline; pointer-events: none; color: #007bff;">Already
-                            don't have an account? Signup</a>
+                  <h3 class="text-center mb-4">Login</h3>
+                  <form (ngSubmit)="Login()">
+                    <div class="form-group">
+                      <label for="username">Email</label>
+                      <input type="text" id="email" class="form-control" name="email" required [(ngModel)]="email" />
                     </div>
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <input type="password" id="password" class="form-control" name="password" required [(ngModel)]="password" />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block mt-4" >Login</button>
+                  </form>
+                  <div class="text-center mt-2">
+                    <a  style="text-decoration: underline; color: #007bff; cursor: pointer;" (click)="NotHaveAccount()">Already don't have an account? Signup</a>
+                  </div>
                 </div>
-            </div>
+              </div>
+              
 
-            <div class="card">
+            <div class="card" *ngIf="!disableSignup">
                 <div class="card-body">
                     <h3 class="text-center mb-4">SignUp</h3>
-                    <form>
+                    <form (ngSubmit)="Signup()">
                         <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" id="username" class="form-control" name="username" required>
+                            <label for="username">Email</label>
+                            <input type="text" id="emailCreate" class="form-control" name="emailCreate" required [(ngModel)]="emailCreate">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" id="password" class="form-control" name="password" required>
+                            <input type="password" id="passwordCreate" class="form-control" name="passwordCreate" required [(ngModel)]="passwordCreate">
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Name</label>
+                            <input type="text" id="nameCreate" class="form-control" name="nameCreate" required [(ngModel)]="nameCreate">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contact</label>
+                            <input type="text" id="contactCreate" class="form-control" name="contactCreate" required [(ngModel)]="contactCreate">
                         </div>
                         <button type="submit" class="btn btn-success btn-block mt-4">Signup</button>
                     </form>
                     <div class="text-center mt-2">
-                        <a href="#" style="text-decoration: underline; pointer-events: none; color: #007bff;">Already
+                        <a  style="text-decoration: underline; color: #007bff; cursor: pointer;" (click)="HaveAccount()">Already
                             have an account? Login</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
 </div>

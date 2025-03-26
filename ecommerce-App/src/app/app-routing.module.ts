@@ -4,14 +4,17 @@ import { HomeComponent } from './components/home/home.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { ProductComponent } from './components/product/product.component';
 import { LoginSignupComponent} from './components/login-signup/login-signup.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { authGuard } from './auth.guard';
 
 
 const routes: Routes = [
-  {path : '', component: HomeComponent},
-  {path : 'shop', component: ShopComponent},
-  {path : 'product', component: ProductComponent},
-  {path : 'product/:id', component: ProductComponent},
-  {path : "login", component: LoginSignupComponent}
+  {path : "login", component: LoginSignupComponent, canActivate: [authGuard] },
+  {path : '', component: HomeComponent, canActivate: [authGuard] },
+  {path : 'shop', component: ShopComponent, canActivate: [authGuard]},
+  {path : 'product', component: ProductComponent, canActivate: [authGuard]},
+  {path : 'product/:id', component: ProductComponent, canActivate: [authGuard]},
+  {path : "profile", component: ProfileComponent, canActivate: [authGuard]}
 ];
 
 @NgModule({

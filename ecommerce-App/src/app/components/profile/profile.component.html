@@ -1,0 +1,11 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card profile-card ">
+        <div class="card-body text-center">
+            <img src="https://i.pinimg.com/474x/61/68/a0/6168a0643628a823d71c69c388279c2c.jpg" alt="User Profile" class="rounded-circle profile-img mb-3">
+            <h3 class="card-title mb-2">{{profileDetails.name}}</h3>
+            <p class="card-text text-muted mb-3">email : {{profileDetails.email}}</p>
+            <p class="card-text mb-4">contact : {{profileDetails.contactNumber}}</p>
+            <button type="button" class="btn btn-danger" (click)="logout()" >Logout</button>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-shop',
@@ -20,6 +21,12 @@ export class ShopComponent {
   }
 
   productDetails: any;
+  token = localStorage.getItem('authToken');
+
+  headers = new HttpHeaders({
+    'Authorization': `Bearer ${this.token}`,
+    'Content-Type': 'application/json' // ถ้าเป็น POST ต้องมี
+  });
 
   getStars(rating: number): number[] {
     return Array(rating).fill(0);
@@ -27,7 +34,7 @@ export class ShopComponent {
 
   ngOnInit() {
     let apiUrl = 'http://localhost:5027/product';
-    this.httpClient.get(apiUrl).subscribe((data) => {
+    this.httpClient.get(apiUrl, {headers : this.headers}).subscribe((data) => {
       this.productDetails = data;
       console.log(this.productDetails);
     });
